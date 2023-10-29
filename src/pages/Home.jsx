@@ -10,7 +10,7 @@ const Home = () => {
   useEffect(() => {
     const fetchRecipes = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/recipes");
+        const response = await axios.get(`${import.meta.env.VERCEL_SERVER_URL}/recipes`);
         setRecipes(response.data.recipes);
       } catch (err) {
         console.log(err);
@@ -20,7 +20,7 @@ const Home = () => {
     const fetchSavedRecipes = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3001/recipes/savedRecipes/ids/${userID}`
+          `${import.meta.env.VERCEL_SERVER_URL}/recipes/savedRecipes/ids/${userID}`
         );
         setSavedRecipes(response.data.savedRecipes);
       } catch (err) {
@@ -34,7 +34,7 @@ const Home = () => {
 
   const saveRecipe = async (recipeID) => {
     try {
-      const response = await axios.put("http://localhost:3001/recipes", {
+      const response = await axios.put(`${import.meta.env.VERCEL_SERVER_URL}/recipes`, {
         userID,
         recipeID,
       });

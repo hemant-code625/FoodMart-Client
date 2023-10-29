@@ -5,12 +5,11 @@ import { useGetUserID } from '../hooks/useGetUserID';
 const Favourites = () => {
   const [savedRecipes, setSavedRecipes] = useState([]);
   const userID = useGetUserID();
-  const fetchSavedRecipes = async(event)=>{
+  const fetchSavedRecipes = async()=>{
      
     try{
-      const response = await axios.get(`http://localhost:3001/recipes/savedRecipes/${userID}`)
-      console.log(response.data.savedRecipes)
-      setSavedRecipes(response.data.savedRecipes);
+      const response = await axios.get(`${import.meta.env.VERCEL_SERVER_URL}/recipes/savedRecipes/${userID}`)
+      setSavedRecipes(response.data);
     }catch(err){
       console.error(err)
     }
@@ -22,7 +21,7 @@ const Favourites = () => {
     
     <>
     {
-      savedRecipes && savedRecipes.map((recipe)=>(
+      savedRecipes.length === 0 ? <h1>Loading</h1> : (savedRecipes.map((recipe)=>(
         <li key={recipe._id}>
         <div>
           <h2>{recipe.name}</h2>
@@ -33,7 +32,7 @@ const Favourites = () => {
         <img src={recipe.imageURL} alt={recipe.name} />
         <p>Cooking Time: {recipe.cookingTime} minutes</p>
       </li> 
-      ))
+      )))
     }
     </>
   )

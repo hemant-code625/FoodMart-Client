@@ -27,9 +27,9 @@ const Login = () => {
   
     try {
   
-      const userExists = await axios.get(`http://localhost:3001/auth/user-exists/${username}`);
+      const userExists = await axios.get(`${import.meta.env.VERCEL_SERVER_URL}/auth/user-exists/${username}`);
       if (userExists.data.exists) {
-        const result = await axios.post("http://localhost:3001/auth/login", {
+        const result = await axios.post(`${import.meta.env.VERCEL_SERVER_URL}/auth/login`, {
           username,
           password,
         });
@@ -84,7 +84,7 @@ const Register = () => {
     
     event.preventDefault();
     try {
-      await axios.post("http://localhost:3001/auth/register", {
+      await axios.post(`${import.meta.env.VERCEL_SERVER_URL}/auth/register`, {
         username,
         password,
       });
