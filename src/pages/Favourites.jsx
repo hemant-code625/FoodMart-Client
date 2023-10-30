@@ -8,7 +8,7 @@ const Favourites = () => {
   const fetchSavedRecipes = async()=>{
      
     try{
-      const response = await axios.get(`${import.meta.env.VERCEL_SERVER_URL}/recipes/savedRecipes/${userID}`)
+      const response = await axios.get(`${import.meta.env.VITE_VERCEL_SERVER_URL}/recipes/savedRecipes/${userID}`)
       setSavedRecipes(response.data);
     }catch(err){
       console.error(err)

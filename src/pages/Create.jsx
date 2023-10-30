@@ -37,7 +37,7 @@ const Create = () => {
   const handleSubmit =async (event)=>{
     event.preventDefault();
     try{
-      await axios.post(`${import.meta.env.VERCEL_SERVER_URL}/recipes`, {...recipe});
+      await axios.post(`${import.meta.env.VITE_VERCEL_SERVER_URL}/recipes`, {...recipe});
       alert("Recipe created Successfully!");
       navigate("/")
     }catch(err){
