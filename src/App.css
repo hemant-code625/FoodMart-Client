@@ -154,3 +154,143 @@
     max-width: 400px;
     font-size: 12px;
   }
+
+  .bookmarkBtn {
+    width: 100px;
+    height: 40px;
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.349);
+    background-color: rgb(12, 12, 12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition-duration: .3s;
+    overflow: hidden;
+  }
+  
+  .IconContainer {
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(to bottom, rgb(255, 136, 255),rgb(172, 70, 255));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 2;
+    transition-duration: .3s;
+  }
+  
+  .icon {
+    border-radius: 1px;
+  }
+  
+  .text {
+    height: 100%;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 1;
+    transition-duration: .3s;
+    font-size: 1.04em;
+  }
+  
+  .bookmarkBtn:hover .IconContainer {
+    width: 90px;
+    border-radius: 40px;
+    transition-duration: .3s;
+  }
+  
+  .bookmarkBtn:hover .text {
+    transform: translate(10px);
+    width: 0;
+    font-size: 0;
+    transition-duration: .3s;
+  }
+  
+  .bookmarkBtn:active {
+    transform: scale(0.95);
+    transition-duration: .3s;
+  }
+
+  .loader{
+    display: block;
+    width: 55px;
+    margin: auto;
+    height: 49vh;
+  }
+  .text {
+    color: white;
+    font-weight: bolder;
+  }
+  
+  @keyframes letter {
+    0% {
+      font-size: 30px;
+    }
+  
+    50% {
+      font-size: 40px;
+    }
+  
+    100% {
+      font-size: 30px;
+    }
+  }
+  
+  .letter {
+    animation: letter 1s infinite;
+  }
+  
+  .letter1 {
+    animation-delay: 0s;
+  }
+  
+  .letter2 {
+    animation-delay: -0.9s;
+  }
+  
+  .letter3 {
+    animation-delay: -0.8s;
+  }
+  
+  .letter4 {
+    animation-delay: -0.7s;
+  }
+  
+  .letter5 {
+    animation-delay: -0.6s;
+  }
+  
+  .letter6 {
+    animation-delay: -0.5s;
+  }
+  
+  .letter7 {
+    animation-delay: -0.4s;
+  }
+  
+  .letter8 {
+    animation-delay: -0.3s;
+  }
+  
+  .letter9 {
+    animation-delay: -0.2s;
+  }
+  
+  .letter10 {
+    animation-delay: -0.1s;
+  }
+
+  .fav-note{
+    display: block;
+    max-width: 904px;
+    margin: auto;
+    font-size: 20px;
+  }
+.auth-btn{
+  cursor: pointer;
+}

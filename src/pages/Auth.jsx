@@ -89,6 +89,8 @@ const Register = () => {
         password,
       });
       alert("Registration Completed! Now login.");
+      setUsername("");
+      setPassword("");
     } catch (error) {
       console.error(error);
     }
