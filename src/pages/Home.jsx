@@ -50,16 +50,16 @@ const Home = () => {
     <div>
       <ul>
         { recipes.length === 0 ?<> 
-        <div class="spinnerContainer">
-        <div class="spinner"></div>
+        <div className="spinnerContainer">
+        <div className="spinner"></div>
         <div class="home-loader">
           <p className="loader-para">loading</p>
-          <div class="words">
-            <span class="word">posts</span>
-            <span class="word">images</span>
-            <span class="word">users</span>
-            <span class="word">data</span>
-            <span class="word">posts</span>
+          <div className="words">
+            <span className="word">posts</span>
+            <span className="word">images</span>
+            <span className="word">users</span>
+            <span className="word">data</span>
+            <span className="word">posts</span>
           </div>
         </div>
       </div>
@@ -79,10 +79,9 @@ const Home = () => {
                 disabled={isRecipeSaved(recipe._id)}
               >
                 <span class="IconContainer"> 
-                <svg viewBox="0 0 384 512" height="0.9em" class="icon"><path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"></path></svg>
-              </span>
-  
-                {isRecipeSaved(recipe._id) ? <p class="text">Saved</p> : <p class="text">Save</p>}
+                <svg viewBox="0 0 384 512" height="0.9em" className="icon"><path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"></path></svg>
+                </span>
+                {isRecipeSaved(recipe._id) ? <p className="text">Saved</p> : <p className="text">Save</p>}
               </button>
           </li>
         )))}

@@ -1,3 +1,7 @@
 *{
     font-family:monospace;
 }
+#root{
+    background-color: #2d2c2c;
+    height: auto;
+  }

@@ -34,14 +34,10 @@
   }
 }
 
-#root{
-  background-color: #2d2c2c;
-  height: 100vh;
-}
   body {
     margin: 0;
     padding: 0;
-    background-color: #131212;
+    background-color: #2d2c2c;
     color: white;
   }
   
@@ -50,7 +46,12 @@
     justify-content: space-evenly;
     align-items: center;
   }
-  
+  /* From Favourites */
+  .empty{
+    display: block;
+    width: 367px;
+    margin: auto;
+  }
   .auth-container {
     display: flex;
     flex-direction: column;
