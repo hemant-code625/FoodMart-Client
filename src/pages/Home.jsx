@@ -50,20 +50,20 @@ const Home = () => {
     <div>
       <ul>
         { recipes.length === 0 ?<> 
-          <div class="loader">
-          <p class="text">
-          <span class="letter letter1">L</span>
-          <span class="letter letter2">o</span>
-          <span class="letter letter3">a</span>
-          <span class="letter letter4">d</span>
-          <span class="letter letter5">i</span>
-          <span class="letter letter6">n</span>
-          <span class="letter letter7">g</span>
-          <span class="letter letter8">.</span>
-          <span class="letter letter9">.</span>
-          <span class="letter letter10">.</span>
-          </p>
-        </div> </> : ( recipes.map((recipe) => (
+        <div class="spinnerContainer">
+        <div class="spinner"></div>
+        <div class="home-loader">
+          <p className="loader-para">loading</p>
+          <div class="words">
+            <span class="word">posts</span>
+            <span class="word">images</span>
+            <span class="word">users</span>
+            <span class="word">data</span>
+            <span class="word">posts</span>
+          </div>
+        </div>
+      </div>
+        </> : ( recipes.map((recipe) => (
           <li key={recipe._id}>
             <div>
               <h2>{recipe.name}</h2>

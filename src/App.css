@@ -6,7 +6,38 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   }
-  
+/* Responsive Navbar */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+}
+.navbar a:hover {
+  background-color: #ddd;
+  border-radius: 10px;
+  color: black;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar a:not(:first-child) {display: none;}
+  .navbar a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+#root{
+  background-color: #2d2c2c;
+  height: 100vh;
+}
   body {
     margin: 0;
     padding: 0;
@@ -16,10 +47,8 @@
   
   .auth {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
-    height: 100vh;
-    background-color: #131212;
   }
   
   .auth-container {
@@ -36,6 +65,9 @@
     padding: 46px;
     width: 287px;
   }
+  .auth-container button{
+    cursor: pointer;
+  }
   .main-box{
     margin-top: 50px;
   }
@@ -46,9 +78,12 @@
   }
   
   label {
-    font-weight: bold;
+    /* font-weight: bold;
     margin-bottom: 10px;
-    margin-top: 13px;
+    margin-top: 13px; */
+    font-weight: bold;
+    margin-bottom: 6px;
+    margin-top: 17px;
   }
   
   input {
@@ -82,22 +117,30 @@
     border-radius: 12px;
     padding: 8px;
   }
-  
+ #instructions{
+  width: 319px;
+  height: 100px;
+  border-radius: 5px;
+ } 
+ #ingredients{
+  margin: 2px;
+ }
   .create-recipe {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 37px;
-    background-color: rgb(19 18 18);
+    padding: 51px;
+    background-color:  rgb(0 0 0 / 49%);
     margin: auto;
-    width: 300px;
-    border: 2px solid rgb(154 185 216 / 75%);
-    border-radius: 57px;
+    width: 351px;
+    border: -12px solid rgb(154 185 216 / 75%);
+    border-radius: 25px;
+    height: auto;
   }
   .create-recipe form {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    width: 240px;
   }
   ul {
     list-style: none;
@@ -285,12 +328,131 @@
     animation-delay: -0.1s;
   }
 
-  .fav-note{
-    display: block;
-    max-width: 904px;
-    margin: auto;
-    font-size: 20px;
+  /* Home page loading  */
+  .spinnerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 245px;
   }
+  .loader-para{
+    max-width: 400px;
+    font-size: 32px;
+    margin: 2px;
+    margin-right: 11px;
+  }
+  .spinner {
+    width: 56px;
+    height: 56px;
+    display: grid;
+    border: 4px solid #0000;
+    border-radius: 50%;
+    border-right-color: #299fff;
+    animation: tri-spinner 1s infinite linear;
+  }
+  
+  .spinner::before,
+  .spinner::after {
+    content: "";
+    grid-area: 1/1;
+    margin: 2px;
+    border: inherit;
+    border-radius: 50%;
+    animation: tri-spinner 2s infinite;
+  }
+  
+  .spinner::after {
+    margin: 8px;
+    animation-duration: 3s;
+  }
+  
+  @keyframes tri-spinner {
+    100% {
+      transform: rotate(1turn);
+    }
+  }
+  
+  .home-loader {
+    color: #ffffff;
+    font-family: "Poppins",sans-serif;
+    font-weight: 1000;
+    font-size: 35px;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 62px;
+    padding: 10px 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border-radius: 40px;
+  }
+  
+  .words {
+    overflow: hidden;
+  }
+  
+  .word {
+    display: block;
+    height: 100%;
+    padding-left: 6px;
+    color: #299fff;
+    animation: cycle-words 5s infinite;
+  }
+  
+  @keyframes cycle-words {
+    10% {
+      -webkit-transform: translateY(-105%);
+      transform: translateY(-105%);
+    }
+  
+    25% {
+      -webkit-transform: translateY(-100%);
+      transform: translateY(-100%);
+    }
+  
+    35% {
+      -webkit-transform: translateY(-205%);
+      transform: translateY(-205%);
+    }
+  
+    50% {
+      -webkit-transform: translateY(-200%);
+      transform: translateY(-200%);
+    }
+  
+    60% {
+      -webkit-transform: translateY(-305%);
+      transform: translateY(-305%);
+    }
+  
+    75% {
+      -webkit-transform: translateY(-300%);
+      transform: translateY(-300%);
+    }
+  
+    85% {
+      -webkit-transform: translateY(-405%);
+      transform: translateY(-405%);
+    }
+  
+    100% {
+      -webkit-transform: translateY(-400%);
+      transform: translateY(-400%);
+    }
+  }
+  
+.fav-note{
+  display: block;
+  max-width: 904px;
+  margin: auto;
+  font-size: 20px;
+}
 .auth-btn{
+  cursor: pointer;
+}
+.add-btn{
+  border-radius: 20px;
+  height: 30px;
   cursor: pointer;
 }

@@ -46,7 +46,7 @@ const Create = () => {
   }
   return (
     <div className='create-recipe'>
-      <h2>Create Recipe</h2>
+      {/* <h1>Create Recipe</h1> */}
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name: </label>
         <input
@@ -62,11 +62,12 @@ const Create = () => {
             key={index}
             type="text"
             name="ingredients"
+            id='ingredients'
             value={ingredient}
             onChange={(event) => handleIngredientChange(event, index)}
           />
         ))}
-        <button type="button" onClick={handleAddIngredient}>
+        <button type="button" className='add-btn' onClick={handleAddIngredient}>
           Add Ingredient
         </button>
         <label htmlFor="instructions">Instructions: </label>
