@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import {useGetUserID} from '../hooks/useGetUserID'
 import {useNavigate} from "react-router-dom"
+import { useCookies } from "react-cookie";
+
 import axios from 'axios'
 const Create = () => {
   const userID = useGetUserID();
+  const [cookies ,_] = useCookies(["access_token"]);
   const [recipe, setRecipe] = useState({
     name:"",
     ingredients:[],
@@ -37,7 +40,9 @@ const Create = () => {
   const handleSubmit =async (event)=>{
     event.preventDefault();
     try{
-      await axios.post(`${import.meta.env.VITE_VERCEL_SERVER_URL}/recipes`, {...recipe});
+      await axios.post(`${import.meta.env.VITE_VERCEL_SERVER_URL}/recipes`,
+      recipe,
+      {headers:{ authorization: cookies.access_token}});
       alert("Recipe created Successfully!");
       navigate("/")
     }catch(err){
@@ -46,7 +51,6 @@ const Create = () => {
   }
   return (
     <div className='create-recipe'>
-      {/* <h1>Create Recipe</h1> */}
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name: </label>
         <input
