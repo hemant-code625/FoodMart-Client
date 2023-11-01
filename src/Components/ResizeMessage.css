@@ -1,0 +1,19 @@
+.popup-message {
+    display: none; 
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #f44336; 
+    color: #fff; 
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+@media (max-width: 600px) {
+    .popup-message {
+        display: block; 
+    }
+}
+  
